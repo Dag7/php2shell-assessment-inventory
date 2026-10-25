@@ -1,0 +1,29 @@
+{
+  "name": "PHP2Shell",
+  "verified_on": "2026-10-25",
+  "cves": ["CVE-2026-109618", "CVE-2026-109619"],
+  "upstream_fixed_releases": {
+    "8.2": "8.2.35",
+    "8.3": "8.3.36",
+    "8.4": "8.4.27",
+    "8.5": "8.5.12"
+  },
+  "assessment_limits": [
+    "An HTTP banner is an observation, not proof of the installed web runtime or its patch status.",
+    "Older upstream versions may contain vendor backports. Check the complete package build against the vendor advisory.",
+    "An affected build does not by itself establish remote exploitability of a particular website.",
+    "Verify the runtime serving web requests; the CLI binary may differ. Confirm patched workers were restarted.",
+    "Absence of a PHP header does not establish absence of PHP."
+  ],
+  "separate_followup": {
+    "cve": "CVE-2026-115560",
+    "note": "PHP's October 23 notice recommends retaining session.upload_progress.enabled=0 pending a fix for this separate issue. Do not use this setting alone to conclude that either PHP2Shell CVE is fixed."
+  },
+  "sources": [
+    "https://www.php.net/archive/2026.php",
+    "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
+    "https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp",
+    "https://www.php.net/manual/en/ini.core.php#ini.expose-php",
+    "https://www.aikido.dev/blog/critical-vulnerabilities-in-php-php2shell"
+  ]
+}

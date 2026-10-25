@@ -1,0 +1,30 @@
+# Credentials and local environment
+.env
+.env.*
+!.env.example
+credentials*
+secrets*
+*.pem
+*.key
+*.p12
+*.pfx
+*.kdbx
+
+# Session material and raw collection outputs
+cookies*
+**/cookies*
+raw/
+**/raw/
+raw-bodies/
+raw-logs/
+logs/
+*.log
+*.har
+*.pcap
+*.pcapng
+
+# Local tooling
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

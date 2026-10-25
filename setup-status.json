@@ -1,0 +1,24 @@
+{
+  "checked_on": "2026-10-25",
+  "production_team_running": false,
+  "sites_assessed": 0,
+  "codex": {
+    "cli_version": "0.162.1",
+    "authenticated": true,
+    "work_completed": ["Primary-source advisory research", "Inventory preparation and review"]
+  },
+  "claude": {
+    "cli_version": "2.1.300",
+    "authenticated": true,
+    "policy_review_model": "claude-opus-5-5",
+    "policy_review_completed": true,
+    "policy_review_tools_enabled": false
+  },
+  "opencode": {"installed": false, "provider_access_verified": false},
+  "nmap": {"installed": false},
+  "remaining_requirements": [
+    "Define authorized targets and permitted assessment methods.",
+    "Configure and verify an OpenCode provider before claiming an OpenCode team member.",
+    "Implement and verify a bounded production runner before claiming ongoing production operation."
+  ]
+}

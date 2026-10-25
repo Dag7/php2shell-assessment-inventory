@@ -1,0 +1,271 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Authorized PHP assessment observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "asset",
+    "observed_at",
+    "permission_reference",
+    "php",
+    "assessments"
+  ],
+  "properties": {
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hostname"
+      ],
+      "properties": {
+        "hostname": {
+          "type": "string",
+          "format": "hostname",
+          "minLength": 1,
+          "maxLength": 253,
+          "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9.-]*[A-Za-z0-9])?$"
+        }
+      }
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "permission_reference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "php": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observed_version",
+        "backport_status"
+      ],
+      "properties": {
+        "observed_version": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "package_name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "package_version": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "build_identifier": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "platform": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "backport_status": {
+          "enum": [
+            "unknown",
+            "vendor_fix_present",
+            "vendor_fix_absent",
+            "not_applicable"
+          ]
+        }
+      }
+    },
+    "assessments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/assessment"
+      }
+    }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "reference",
+        "collected_at",
+        "summary"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "owner_runtime",
+            "owner_patch",
+            "public_documentation",
+            "http_header",
+            "authorized_nonintrusive_probe"
+          ]
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "collected_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "runtime_instance_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "runtime_serving_traffic": {
+          "type": "boolean"
+        },
+        "workers_restarted": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "owner_runtime"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "required": [
+              "runtime_instance_id"
+            ]
+          }
+        }
+      ]
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cve_id",
+        "status",
+        "rationale",
+        "evidence"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "unknown",
+            "suspected_affected_version",
+            "affected_build_confirmed",
+            "fix_verified"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cve_id": {
+          "type": "string",
+          "pattern": "^CVE-[0-9]{4}-[0-9]{4,}$"
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "affected_build_confirmed",
+                  "fix_verified"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "evidence": {
+                "contains": {
+                  "properties": {
+                    "kind": {
+                      "enum": [
+                        "owner_runtime",
+                        "owner_patch"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "fix_verified"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "evidence": {
+                "contains": {
+                  "properties": {
+                    "kind": {
+                      "const": "owner_runtime"
+                    },
+                    "runtime_serving_traffic": {
+                      "const": true
+                    },
+                    "workers_restarted": {
+                      "const": true
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "runtime_instance_id",
+                    "runtime_serving_traffic",
+                    "workers_restarted"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
