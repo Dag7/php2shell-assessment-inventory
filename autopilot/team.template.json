@@ -1,0 +1,30 @@
+{
+  "name": "PHP technology inventory review",
+  "slug": "php-inventory-review",
+  "researchUse": "internal_only",
+  "members": [
+    {"handle": "claude-researcher", "harness": "claude-code", "model": "__CLAUDE_MODEL_FROM_ORA_CATALOG__", "position": "researcher"},
+    {"handle": "codex-maintainer", "harness": "codex", "model": "__CODEX_MODEL_FROM_ORA_CATALOG__", "position": "maintainer"},
+    {"handle": "opencode-reviewer", "harness": "__OPENCODE_HARNESS_FROM_ORA_CATALOG__", "model": "__OPENCODE_MODEL_FROM_ORA_CATALOG__", "position": "reviewer"}
+  ],
+  "squads": [{"name": "inventory", "members": ["claude-researcher", "codex-maintainer", "opencode-reviewer"]}],
+  "positions": [
+    {"name": "researcher", "brief": "Review the named profiling services and primary PHP advisories. Use only the existing five-domain passive batch. Do not send requests to candidate hosts, discover additional targets, run probes or payloads, or contact owners. Record source provenance and uncertainty."},
+    {"name": "maintainer", "brief": "Maintain concise evidence in the attached repository. Keep PHP usage separate from vulnerability status. Commit and push reviewed passive-research changes only using the configured repository credential. Do not add candidates to active scope, alter scope, disclose secrets, or publish findings."},
+    {"name": "reviewer", "brief": "Review evidence quality and JSON consistency independently. Flag unsupported vulnerability claims. Enforce the five-domain passive batch and zero candidate-host requests. Do not change scope, run probes, discover targets, or contact owners."}
+  ],
+  "budgets": {
+    "onTrip": "stop",
+    "team": {"usd": 10},
+    "mission": {"usd": 5, "turns": 12, "wallClockMin": 10},
+    "member": {"turnWallClockSec": 180}
+  },
+  "resources": {
+    "repos": [{
+      "url": "https://github.com/Dag7/php2shell-assessment-inventory.git",
+      "ref": "main",
+      "credential": {"secretRef": "__ORA_GITHUB_REPOSITORY_WRITE_SECRET_REF__"}
+    }]
+  },
+  "clientKey": "php-passive-inventory-team-001"
+}

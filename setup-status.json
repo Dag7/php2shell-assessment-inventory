@@ -4,6 +4,15 @@
   "sites_assessed": 0,
   "passive_candidate_domains_recorded": 5,
   "direct_target_requests_sent": 0,
+  "ora": {
+    "cli_version": "0.13.0",
+    "api_url": "https://api.agentfront.sh",
+    "api_key_configured": false,
+    "team_template_prepared": true,
+    "hosted_catalog_verified": false,
+    "team_created": false,
+    "mission_started": false
+  },
   "codex": {
     "cli_version": "0.162.1",
     "authenticated": true,
@@ -19,6 +28,8 @@
   "opencode": {"installed": false, "provider_access_verified": false},
   "nmap": {"installed": false},
   "remaining_requirements": [
+    "Authenticate Ora in this environment and verify the required product and API scopes.",
+    "Resolve all three hosted harness/model choices from Ora's authenticated catalog and bind a repository write credential.",
     "Define authorized targets and permitted assessment methods.",
     "Configure and verify an OpenCode provider before claiming an OpenCode team member.",
     "Implement and verify a bounded production runner before claiming ongoing production operation."
