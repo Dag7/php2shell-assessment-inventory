@@ -82,7 +82,8 @@
       "config": {
         "succession": [
           "codex-maintainer"
-        ]
+        ],
+        "formerLeaderPosition": "reviewer"
       }
     },
     "goal": {
