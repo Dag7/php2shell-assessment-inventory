@@ -24,6 +24,8 @@ The user requested technology profiling sources and a limited number of domains.
 
 These are third-party technology claims, with no per-site PHP version or patch evidence. Each candidate's PHP2Shell CVE status is `unknown`. A candidate is not an active assessment target, a vulnerability finding, or evidence that its owner should receive a vulnerability alert. No direct requests were sent to the five candidate hostnames, and `data/observations.jsonl` remains empty.
 
+The [completed three-member hosted review](research/passive-batch-001-review.json) corroborates the passive batch and advisory table. [Runtime evidence](autopilot/runtime.json) records the successful mission, earlier failed attempts, and the actual model roster.
+
 ## Record evidence
 
 Store one observation per line in `data/observations.jsonl`, following `schemas/observation.schema.json` (JSON Schema draft 2020-12). Each observation includes the asset hostname, observation timestamp, permission reference, PHP details, evidence references and collection timestamps, a separate assessment for each relevant CVE, each with its own evidence, status, and rationale. Owner runtime evidence must identify the runtime instance with `runtime_instance_id`. Store references and concise summaries rather than credentials, cookies, raw response bodies, or raw logs.

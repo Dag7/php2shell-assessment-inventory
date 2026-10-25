@@ -21,7 +21,14 @@
     "opencode_startup_check_mission_id": "3a134c9e-1a57-4937-bd51-68602a6d49ef",
     "all_three_members_execution_verified": true,
     "opencode_runtime_model": "claude-sonnet-4-6",
-    "opencode_startup_check_passed": true
+    "opencode_startup_check_passed": true,
+    "current_review_mission_id": "34d54359-5322-4a5c-bc0d-9f4eacc890c2",
+    "current_review_mission_status": "done",
+    "team_status": "active",
+    "active_missions": 0,
+    "review_report_path": "research/passive-batch-001-review.json",
+    "authentication_method": "per-process ORA_API_KEY loaded from external dotenv",
+    "persistent_cli_login_written": false
   },
   "codex": {
     "cli_version": "0.162.1",
@@ -47,9 +54,9 @@
     "installed": false
   },
   "remaining_requirements": [
-    "Verify OpenCode startup after the model fallback and complete a reviewed report.",
-    "Active assessment requires a concrete authorized scope; no direct assessments are configured."
+    "Active assessments need a concrete authorized scope; no direct assessments are configured."
   ],
   "repository_visibility": "public",
-  "hosted_repository_access": "public_read_only_operator_pushes_reviewed_results"
+  "hosted_repository_access": "public_read_only_operator_pushes_reviewed_results",
+  "production_team_deployed": true
 }

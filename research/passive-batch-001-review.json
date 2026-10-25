@@ -1,0 +1,248 @@
+{
+  "batch_id": "passive-001",
+  "reviewed_on": "2026-10-25",
+  "repository_revision": "580f960ef1fa34b4d681d589c99c0a9563d61632",
+  "review_result": "passive_inventory_consistent_no_host_vulnerability_determined",
+  "reviewer_handles": [
+    "codex-maintainer",
+    "claude-researcher",
+    "opencode-reviewer"
+  ],
+  "reviewer_roles": {
+    "codex-maintainer": "Leader; repository, scope, JSON and evidence-boundary checks; final integration; direct cross-check of both GHSA pages.",
+    "claude-researcher": "Primary-advisory research; substantive report received and board task completed.",
+    "opencode-reviewer": "Independent profiling-source and evidence review; substantive report received and board task completed."
+  },
+  "source_urls": [
+    "https://www.wappalyzer.com/technologies/programming-languages/php/",
+    "https://trends.builtwith.com/websitelist/PHP",
+    "https://publicwww.com/",
+    "https://www.php.net/archive/2026.php",
+    "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
+    "https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp",
+    "https://www.php.net/manual/en/ini.core.php#ini.expose-php"
+  ],
+  "source_access": [
+    {
+      "source_url_index": 0,
+      "reviewer": "opencode-reviewer",
+      "result": "accessible",
+      "detail": "Reported live confirmation of the existing five hostnames at sample positions 1 through 5. No candidate links followed."
+    },
+    {
+      "source_url_index": 1,
+      "reviewer": "opencode-reviewer",
+      "result": "accessible_but_per_host_content_unavailable",
+      "detail": "Retrieved page did not render usable per-host data; reviewer reported JavaScript-dependent loading. Not used to populate candidates. This is an evidence-access limitation, not corroboration of the five hosts."
+    },
+    {
+      "source_url_index": 2,
+      "reviewer": "opencode-reviewer",
+      "result": "accessible",
+      "detail": "Homepage only; no candidate search or export performed. It supplies no candidate-specific evidence."
+    },
+    {
+      "source_url_index": 3,
+      "reviewer": "claude-researcher",
+      "result": "fetched_ok",
+      "detail": "Reported confirmation of the October 21 PHP2Shell release notice and distinct October 23 follow-up."
+    },
+    {
+      "source_url_index": 4,
+      "reviewer": "claude-researcher; codex-maintainer",
+      "result": "fetched_ok",
+      "detail": "CVE-2026-109618 mapping, release bounds and deployment-dependent applicability cross-checked directly by leader."
+    },
+    {
+      "source_url_index": 5,
+      "reviewer": "claude-researcher; codex-maintainer",
+      "result": "fetched_ok",
+      "detail": "CVE-2026-109619 mapping, release bounds and persistent-worker conditions cross-checked directly by leader."
+    },
+    {
+      "source_url_index": 6,
+      "reviewer": "claude-researcher",
+      "result": "fetched_ok",
+      "detail": "Banner configuration is not owner-runtime or patch evidence."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "subject": "Batch identity and provenance",
+      "result": "consistent",
+      "detail": "Exactly the five existing candidates are retained in their recorded order. Independent review corroborates the Wappalyzer sample positions; all technology claims remain attributed to that service, not independently verified against the hosts.",
+      "evidence_references": [
+        "research/passive-batch-001.json",
+        "source_urls[0]",
+        "opencode-reviewer report"
+      ]
+    },
+    {
+      "id": "F2",
+      "subject": "Advisory accuracy",
+      "result": "corroborated",
+      "detail": "The primary-advisory review and leader GHSA cross-check support both CVE mappings and branch-specific upstream fixes in advisory.json. Neither the advisories nor reported PHP use identify a candidate's installed build, vendor backports, configuration or exploitability.",
+      "evidence_references": [
+        "advisory.json",
+        "source_urls[3]",
+        "source_urls[4]",
+        "source_urls[5]"
+      ]
+    },
+    {
+      "id": "F3",
+      "subject": "Scope and collection boundary",
+      "result": "preserved",
+      "detail": "scope.json remains default-deny with allowed_hosts empty. No candidates were added to active scope. data/observations.jsonl is empty. No direct candidate requests, scans, CVE tests, payloads, owner contact, credential searches or pushes were performed by this review.",
+      "evidence_references": [
+        "AGENTS.md",
+        "scope.json",
+        "data/observations.jsonl",
+        "both reviewer reports"
+      ]
+    },
+    {
+      "id": "F4",
+      "subject": "Observation schema and evidence requirements",
+      "result": "manual_review_only",
+      "detail": "The observation schema applies to authorized observation records, not this passive batch or its review. owner_runtime evidence must include runtime_instance_id. affected_build_confirmed and fix_verified require owner_runtime OR owner_patch evidence; fix_verified additionally requires owner_runtime evidence with runtime_instance_id, runtime_serving_traffic=true and workers_restarted=true. In particular, affected_build_confirmed does not structurally require owner_runtime when owner_patch exists. Provenance, advisory applicability, scope and truthful assertions still need human review; schema acceptance alone is not vulnerability verification.",
+      "evidence_references": [
+        "schemas/observation.schema.json",
+        "AGENTS.md",
+        "README.md"
+      ]
+    },
+    {
+      "id": "F5",
+      "subject": "Per-CVE conclusions",
+      "result": "all_unknown",
+      "detail": "No per-host PHP versions, complete package/build identifiers, vendor patch records or owner runtime evidence were supplied. All ten candidate/CVE statuses correctly remain unknown; not even suspected_affected_version is justified by a technology-only profile.",
+      "evidence_references": [
+        "research/passive-batch-001.json",
+        "both reviewer reports"
+      ]
+    }
+  ],
+  "corrections": [],
+  "corrections_summary": "No correction to the recorded batch or advisory release table was substantiated. The schema explanation in F4 precisely distinguishes owner_patch acceptance from the additional runtime requirement for fix_verified. Existing repository files are left unchanged.",
+  "upstream_fixed_releases": {
+    "8.2": "8.2.35",
+    "8.3": "8.3.36",
+    "8.4": "8.4.27",
+    "8.5": "8.5.12"
+  },
+  "per_cve_assessment": [
+    {
+      "cve_id": "CVE-2026-109618",
+      "advisory_url": "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
+      "status": "unknown",
+      "applies_to": "Each of the five candidates listed below, separately.",
+      "primary_advisory_summary": "OOM-related corruption of request state. The upstream advisory confirms mod_php impact and distinguishes other SAPI conditions; its findings are not observations about these candidates. The listed fixed releases are branch-specific thresholds, not four simultaneous version constraints. Updating to a release containing the complete patch is the only complete mitigation identified there.",
+      "rationale": "Technology reports do not establish a serving runtime, an affected package/build, backport status or deployment conditions. No owner evidence permits a stronger host status.",
+      "required_before_status_change": "Owner evidence for the serving runtime/package and exact build, vendor patch/backport provenance and matching advisory conditions. A verified fix also requires runtime-instance, serving-traffic and restarted-worker evidence."
+    },
+    {
+      "cve_id": "CVE-2026-109619",
+      "advisory_url": "https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp",
+      "status": "unknown",
+      "applies_to": "Each of the five candidates listed below, separately.",
+      "primary_advisory_summary": "Stale request-owned global state can survive in persistent workers and be consumed by a later request in the same worker. Applicability depends on producer/consumer paths, PHP build and deployment. The branch-specific fixed releases match advisory.json. Configuration mitigations cover particular paths, not the complete issue; no configuration setting alone verifies a fix.",
+      "rationale": "No candidate runtime/package or configuration evidence establishes the required conditions or a patched serving build. The independent conclusion remains unknown for this CVE, irrespective of the first CVE.",
+      "required_before_status_change": "Owner evidence for the serving runtime/package and exact build, vendor patch/backport provenance and this advisory's conditions. A verified fix also requires runtime-instance, serving-traffic and restarted-worker evidence."
+    }
+  ],
+  "candidates": [
+    {
+      "hostname": "chess.com",
+      "provider_sample_position": 1,
+      "included_in_active_scope": false,
+      "cve_status": {
+        "CVE-2026-109618": "unknown",
+        "CVE-2026-109619": "unknown"
+      }
+    },
+    {
+      "hostname": "accounts.hetzner.com",
+      "provider_sample_position": 2,
+      "included_in_active_scope": false,
+      "cve_status": {
+        "CVE-2026-109618": "unknown",
+        "CVE-2026-109619": "unknown"
+      }
+    },
+    {
+      "hostname": "fmkorea.com",
+      "provider_sample_position": 3,
+      "included_in_active_scope": false,
+      "cve_status": {
+        "CVE-2026-109618": "unknown",
+        "CVE-2026-109619": "unknown"
+      }
+    },
+    {
+      "hostname": "gall.dcinside.com",
+      "provider_sample_position": 4,
+      "included_in_active_scope": false,
+      "cve_status": {
+        "CVE-2026-109618": "unknown",
+        "CVE-2026-109619": "unknown"
+      }
+    },
+    {
+      "hostname": "portal.azure.com",
+      "provider_sample_position": 5,
+      "included_in_active_scope": false,
+      "cve_status": {
+        "CVE-2026-109618": "unknown",
+        "CVE-2026-109619": "unknown"
+      }
+    }
+  ],
+  "separate_followup": {
+    "cve_id": "CVE-2026-115560",
+    "notice_date": "2026-10-23",
+    "source_url": "https://www.php.net/archive/2026.php",
+    "assessment": "Separate issue, not an additional candidate assessment. Primary researcher reports PHP recommends retaining session.upload_progress.enabled=0 pending its follow-up fix. This setting alone does not demonstrate either PHP2Shell CVE is fixed."
+  },
+  "limitations": [
+    "Third-party technology profiles can be stale, broad or inaccurate; the five hosts were never contacted to validate PHP use.",
+    "No per-host PHP version, runtime/build, package provenance, vendor backport evidence or source observation timestamp is available. Review date and batch recorded_at do not substitute for per-host observation time.",
+    "BuiltWith per-host content was unavailable in the reviewed rendering; PublicWWW was not searched. Neither corroborates candidate-specific PHP claims.",
+    "No total source-access failure was reported by either colleague. BuiltWith's missing per-host rendering is retained explicitly as a partial access limitation. Leader directly rechecked only the two GHSA pages; other live-source outcomes are attributed to the assigned reviewers.",
+    "The primary researcher's WebFetch output was model-summarized content rather than raw bytes; leader independently cross-checked both GHSA advisories. No raw page bodies or logs are stored.",
+    "JSON syntax and bounded-batch invariants were checked locally. A draft-2020-12 validator with date-time/hostname format checking was unavailable; no dependencies were installed. There are zero observation records to validate, and no claim of full schema validation is made.",
+    "setup-status.json is a historical pre-hosted-run snapshot and is not current execution evidence. Current role participation is evidenced by real board assignments and both substantive reports; no setup-status change is made.",
+    "No vulnerability, remote exploitability, affected build or verified fix is established for any candidate. Operator review and any repository push remain outside this read-only team's work."
+  ],
+  "validation": {
+    "repository_json_files_before_review": 8,
+    "jsonl_observation_records": 0,
+    "exact_five_candidate_order_checked": true,
+    "all_ten_candidate_cve_statuses_unknown": true,
+    "full_draft_2020_12_validation_run": false,
+    "scope_changed": false,
+    "original_batch_changed": false
+  },
+  "candidate_host_requests_sent": 0,
+  "cve_tests_performed": 0,
+  "owner_messages_sent": 0,
+  "push_attempts": 0,
+  "operator_verification": {
+    "verified_at": "2026-10-25T14:14:53.594845+00:00",
+    "ora_mission_id": "34d54359-5322-4a5c-bc0d-9f4eacc890c2",
+    "ora_mission_status": "done",
+    "team_note_id": "350baecb-6bad-490d-8c3e-194561ca715c",
+    "local_repository_revision_before_result_commit": "c16e83f662da33e57306432dfa783a607e3ecc77",
+    "reviewed_inputs_unchanged_since_report_revision": true,
+    "input_files_checked": [
+      "AGENTS.md",
+      "advisory.json",
+      "research/passive-batch-001.json",
+      "schemas/observation.schema.json",
+      "scope.json",
+      "data/observations.jsonl"
+    ],
+    "note": "The carried workspace reviewed its recorded historical commit. The listed assessment inputs match the current local revision; setup and runtime status are updated separately."
+  }
+}

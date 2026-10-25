@@ -1,0 +1,97 @@
+{
+  "verified_at": "2026-10-25T14:14:53.595386+00:00",
+  "api_url": "https://api.agentfront.sh",
+  "team": {
+    "id": "9ddf061f-97d6-48de-8b4e-a0f562d34ae1",
+    "slug": "php-inventory-review",
+    "created": true,
+    "status": "active",
+    "active_missions": 0,
+    "live_workers": 0
+  },
+  "scope": {
+    "mode": "passive_source_review",
+    "candidate_limit": 5,
+    "direct_site_assessments": 0
+  },
+  "members": [
+    {
+      "handle": "codex-maintainer",
+      "harness": "codex",
+      "model": "gpt-6.1-sol",
+      "model_execution_observed": true,
+      "door_state_at_verification": "idle",
+      "liveness_state": "ok"
+    },
+    {
+      "handle": "claude-researcher",
+      "harness": "claude-code",
+      "model": "claude-opus-5-5",
+      "model_execution_observed": true,
+      "door_state_at_verification": "hibernated",
+      "liveness_state": "ok"
+    },
+    {
+      "handle": "opencode-reviewer",
+      "harness": "opencode",
+      "model": "claude-sonnet-4-6",
+      "model_execution_observed": true,
+      "previous_model": "claude-sonnet-5-5",
+      "previous_model_failed_before_task_steps": true,
+      "door_state_at_verification": "hibernated",
+      "liveness_state": "ok"
+    }
+  ],
+  "missions": [
+    {
+      "id": "1c2ef633-9faa-4bef-a7d9-4783b663170f",
+      "purpose": "initial passive review",
+      "status": "stopped",
+      "reason": "turn_budget_after_repeated_opencode_failures",
+      "final_review_produced": false
+    },
+    {
+      "id": "3a134c9e-1a57-4937-bd51-68602a6d49ef",
+      "purpose": "OpenCode startup check after model fallback",
+      "status": "stopped",
+      "startup_response_verified": true,
+      "note_id": "c6f75a98-9995-45f0-9292-c2192d20e4ce",
+      "reason": "bounded_turn_budget_after_successful_note_and_quiescence_nudge"
+    },
+    {
+      "id": "34d54359-5322-4a5c-bc0d-9f4eacc890c2",
+      "purpose": "recovered passive-review retry",
+      "status": "done",
+      "limits": {
+        "usd": 5,
+        "turns": 20,
+        "wall_clock_minutes": 10
+      },
+      "outcome": "done",
+      "ended_by": "agent",
+      "measurable": true,
+      "turns": 6,
+      "started_at": "2026-10-25T14:08:27.310749+00:00",
+      "ended_at": "2026-10-25T14:13:19.279408+00:00",
+      "reported_settled_usd": 1.253081,
+      "final_review_note_id": "350baecb-6bad-490d-8c3e-194561ca715c",
+      "final_review_path": "research/passive-batch-001-review.json",
+      "completion_event_seq": 1072
+    }
+  ],
+  "credential_handling": "Ora key loaded externally into the CLI process; no Ora key or GitHub write credential supplied in this repository or to hosted members.",
+  "repository_write_workflow": "Hosted members return a structured team note; operator reviews and pushes the report.",
+  "ora_service_code_changes": "none; configuration workarounds only; source repairs are planned separately.",
+  "reported_team_budget": {
+    "reservedUsd": 0,
+    "settledUsd": 4.4597,
+    "inputTokens": 99934,
+    "outputTokens": 35100,
+    "warnedAt": null,
+    "trippedAt": null,
+    "tripReason": null
+  },
+  "reported_cost_limitations": "Reported settlement includes conservative reservation-valued unknown-usage settlements and is not an invoice verification.",
+  "reported_candidate_host_requests_sent": 0,
+  "team_has_active_work": false
+}

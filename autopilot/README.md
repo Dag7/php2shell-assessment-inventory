@@ -27,3 +27,7 @@ See `setup-status.json` for the last verified runtime state. A resolved request 
 The first review mission stopped at its 12-turn limit after repeated immediate OpenCode failures with Sonnet 5.5. The OpenCode member was switched to Sonnet 4.6 on a fresh workspace for a separate bounded startup check. Consult the recorded runtime state for its outcome; catalog availability alone did not establish working execution.
 
 The recovered review retry is recorded in `review-retry.json`: the same five passive candidates, with a $5 cap, 20 coordination turns, and 10 minutes. The team retains its $10 cumulative reported-cost cap.
+
+## Verified review result
+
+The recovered three-member mission finished with status `done`, six turns, and no live workers. Its structured result is `research/passive-batch-001-review.json`; final runtime evidence is `autopilot/runtime.json`. The standing team remains available with no active mission. Five candidate hostnames retain unknown CVE status and no direct host requests were reported. The operator verified that the assessment input files were unchanged between the carried workspace revision and the revision used to save the result.
