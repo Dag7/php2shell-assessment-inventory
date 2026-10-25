@@ -31,3 +31,5 @@ The recovered review retry is recorded in `review-retry.json`: the same five pas
 ## Verified review result
 
 The recovered three-member mission finished with status `done`, six turns, and no live workers. Its structured result is `research/passive-batch-001-review.json`; final runtime evidence is `autopilot/runtime.json`. The standing team remains available with no active mission. Five candidate hostnames retain unknown CVE status and no direct host requests were reported. The operator verified that the assessment input files were unchanged between the carried workspace revision and the revision used to save the result.
+
+The team uses mesh topology. A separate bounded peer-only check completed four turns but verified no peer messages; the operator stopped it after its session/tool preflight did not complete. Production peer messaging remains unverified. There are no active missions, and this check requested no target assessment. Separate dev runtime repairs are undergoing validation.

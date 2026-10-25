@@ -28,7 +28,10 @@
     "active_missions": 0,
     "review_report_path": "research/passive-batch-001-review.json",
     "authentication_method": "per-process ORA_API_KEY loaded from external dotenv",
-    "persistent_cli_login_written": false
+    "persistent_cli_login_written": false,
+    "production_peer_messaging_verified": false,
+    "last_peer_smoke_mission_id": "3bec924c-36a2-4df5-b9c0-6b21ffe1e11c",
+    "last_peer_smoke_status": "stopped_unverified"
   },
   "codex": {
     "cli_version": "0.162.1",

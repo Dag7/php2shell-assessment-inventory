@@ -1,5 +1,5 @@
 {
-  "verified_at": "2026-10-25T14:14:53.595386+00:00",
+  "verified_at": "2026-10-25T16:51:00Z",
   "api_url": "https://api.agentfront.sh",
   "team": {
     "id": "9ddf061f-97d6-48de-8b4e-a0f562d34ae1",
@@ -80,16 +80,31 @@
       "final_review_note_id": "350baecb-6bad-490d-8c3e-194561ca715c",
       "final_review_path": "research/passive-batch-001-review.json",
       "completion_event_seq": 1072
+    },
+    {
+      "id": "3bec924c-36a2-4df5-b9c0-6b21ffe1e11c",
+      "purpose": "bounded peer-only mesh check",
+      "status": "stopped",
+      "limits": {
+        "usd": 1.5,
+        "turns": 12,
+        "wall_clock_minutes": 5
+      },
+      "completed_turns": 4,
+      "verified_peer_messages": 0,
+      "result": "unverified",
+      "reason": "session/tool preflight did not complete; operator stopped the mission",
+      "target_assessment_requested": false
     }
   ],
   "credential_handling": "Ora key loaded externally into the CLI process; no Ora key or GitHub write credential supplied in this repository or to hosted members.",
   "repository_write_workflow": "Hosted members return a structured team note; operator reviews and pushes the report.",
-  "ora_service_code_changes": "none; configuration workarounds only; source repairs are planned separately.",
+  "ora_service_code_changes": "Production source unchanged; separate dev runtime repairs and validation are in progress.",
   "reported_team_budget": {
     "reservedUsd": 0,
-    "settledUsd": 4.4597,
-    "inputTokens": 99934,
-    "outputTokens": 35100,
+    "settledUsd": 4.897133,
+    "inputTokens": 126867,
+    "outputTokens": 38077,
     "warnedAt": null,
     "trippedAt": null,
     "tripReason": null
