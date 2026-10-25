@@ -1,0 +1,136 @@
+{
+  "name": "PHP technology inventory review",
+  "slug": "php-inventory-review",
+  "researchUse": "internal_only",
+  "members": [
+    {
+      "handle": "claude-researcher",
+      "harness": "claude-code",
+      "model": "claude-opus-5-5",
+      "position": "researcher"
+    },
+    {
+      "handle": "codex-maintainer",
+      "harness": "codex",
+      "model": "gpt-6.1-sol",
+      "position": "leader"
+    },
+    {
+      "handle": "opencode-reviewer",
+      "harness": "opencode",
+      "model": "claude-sonnet-5-5",
+      "position": "reviewer"
+    }
+  ],
+  "squads": [
+    {
+      "name": "inventory",
+      "members": [
+        "claude-researcher",
+        "codex-maintainer",
+        "opencode-reviewer"
+      ]
+    }
+  ],
+  "positions": [
+    {
+      "name": "researcher",
+      "brief": "Review the named profiling services and primary PHP advisories. Use only the existing five-domain passive batch. Do not send requests to candidate hosts, discover additional targets, run probes or payloads, or contact owners. Record source provenance and uncertainty. Report findings to the leader and complete your board task; do not attempt Git pushes or obtain credentials."
+    },
+    {
+      "name": "reviewer",
+      "brief": "Review evidence quality and JSON consistency independently. Flag unsupported vulnerability claims. Enforce the five-domain passive batch and zero candidate-host requests. Do not change scope, run probes, discover targets, or contact owners. Report findings to the leader and complete your board task; do not attempt Git pushes or obtain credentials."
+    },
+    {
+      "name": "leader",
+      "grants": [
+        "declare_done"
+      ],
+      "brief": "Coordinate the single bounded passive-review mission. Delegate distinct research and review tasks to the other two members. Keep all candidate-host requests at zero. Do not expand the five-domain batch or alter scope. Read the public repository and maintain a local review commit if useful, but do not attempt to push or obtain credentials: the operator will inspect and push the result. Publish the final structured review as a team note using write_note with the title passive-batch-001-review. After both colleagues report and all board work is settled, declare_done with the result and any limitations."
+    }
+  ],
+  "budgets": {
+    "onTrip": "stop",
+    "team": {
+      "usd": 10
+    },
+    "mission": {
+      "usd": 5,
+      "turns": 12,
+      "wallClockMin": 10
+    },
+    "member": {
+      "turnWallClockSec": 180
+    }
+  },
+  "resources": {
+    "repos": [
+      {
+        "url": "https://github.com/Dag7/php2shell-assessment-inventory.git",
+        "ref": "main"
+      }
+    ]
+  },
+  "clientKey": "php-passive-inventory-team-001",
+  "axes": {
+    "topology": {
+      "key": "supervisor@1",
+      "config": {}
+    },
+    "leadership": {
+      "key": "appointed@1",
+      "config": {
+        "succession": [
+          "codex-maintainer"
+        ]
+      }
+    },
+    "goal": {
+      "key": "collective@1",
+      "config": {}
+    },
+    "completion": {
+      "key": "fallback-chain@1",
+      "config": {
+        "chain": [
+          "leader-declares@1",
+          "operator@1"
+        ]
+      }
+    },
+    "delivery": {
+      "key": "live@1",
+      "config": {}
+    },
+    "swarm": {
+      "key": "off@1",
+      "config": {}
+    },
+    "budget": {
+      "key": "reservation@1",
+      "config": {
+        "turnReserveUsd": 0.25,
+        "nativeSubagents": "deny",
+        "turnMaxSteps": 80
+      }
+    },
+    "liveness": {
+      "key": "ladder@1",
+      "config": {}
+    },
+    "residency": {
+      "key": "hibernateWhenQuiescent@1",
+      "config": {
+        "idleSec": 60
+      }
+    },
+    "scheduling": {
+      "key": "serial@1",
+      "config": {}
+    },
+    "workspace": {
+      "key": "carry@1",
+      "config": {}
+    }
+  }
+}

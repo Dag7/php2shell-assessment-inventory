@@ -1,6 +1,6 @@
 # PHP assessment inventory
 
-This repository contains an assessment scaffold and a small passive PHP technology inventory. **No sites have been assessed or directly probed.** It contains no scanner, scheduled runner, CI workflow, or production deployment.
+This repository contains an assessment scaffold and a small passive PHP technology inventory. **No sites have been assessed or directly probed.** The Ora configuration in `autopilot/` describes a bounded hosted review; it does not implement a scanner or scheduled assessment.
 
 The PHP2Shell advisories cover [CVE-2026-109618](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w) and [CVE-2026-109619](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp). PHP lists upstream fixes in 8.2.35, 8.3.36, 8.4.27, and 8.5.12 in its [2026 release archive](https://www.php.net/archive/2026.php). Assess each CVE's applicability and vendor patch evidence separately.
 
@@ -43,6 +43,6 @@ The schema requires owner runtime or patch evidence for `affected_build_confirme
 
 Parse `scope.json`, the schema, and every nonempty JSONL line as JSON. Validate each observation with a validator supporting draft 2020-12 and date-time/hostname format checking. Review each host's permission, expiration, methods, and remaining request budget before any permitted collection.
 
-The private repository is [Dag7/php2shell-assessment-inventory](https://github.com/Dag7/php2shell-assessment-inventory). Review changes for sensitive information before committing and pushing. The initial files parse as JSON; a full draft-2020-12 schema validator was not run. Consult `setup-status.json` for the verified setup state and `advisory.json` for dated advisory facts and primary sources.
+The public repository is [Dag7/php2shell-assessment-inventory](https://github.com/Dag7/php2shell-assessment-inventory). It was made public with the owner's approval for credential-free hosted reads. Hosted agents receive no GitHub write credential; the operator reviews and pushes their report. Review changes for sensitive information before committing and pushing. The initial files parse as JSON; a full draft-2020-12 schema validator was not run. Consult `setup-status.json` for the verified setup state and `advisory.json` for dated advisory facts and primary sources.
 
-This repository does not launch a Claude, Codex, or OpenCode team. Any future runner or provider integration needs its own implementation and verified configuration. Do not publish findings automatically or contact asset owners from this inventory.
+Consult `autopilot/README.md` and the recorded runtime state before asserting that a team or mission is running. Do not publish vulnerability findings automatically or contact asset owners from this inventory.

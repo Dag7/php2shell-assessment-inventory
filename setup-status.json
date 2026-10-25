@@ -7,16 +7,21 @@
   "ora": {
     "cli_version": "0.13.0",
     "api_url": "https://api.agentfront.sh",
-    "api_key_configured": false,
+    "api_key_configured": true,
     "team_template_prepared": true,
-    "hosted_catalog_verified": false,
+    "hosted_catalog_verified": true,
     "team_created": false,
-    "mission_started": false
+    "mission_started": false,
+    "team_configuration_resolved": true
   },
   "codex": {
     "cli_version": "0.162.1",
     "authenticated": true,
-    "work_completed": ["Primary-source advisory research", "Inventory preparation and review", "Five-domain passive technology-profile inventory"]
+    "work_completed": [
+      "Primary-source advisory research",
+      "Inventory preparation and review",
+      "Five-domain passive technology-profile inventory"
+    ]
   },
   "claude": {
     "cli_version": "2.1.300",
@@ -25,13 +30,17 @@
     "policy_review_completed": true,
     "policy_review_tools_enabled": false
   },
-  "opencode": {"installed": false, "provider_access_verified": false},
-  "nmap": {"installed": false},
+  "opencode": {
+    "installed": false,
+    "provider_access_verified": false
+  },
+  "nmap": {
+    "installed": false
+  },
   "remaining_requirements": [
-    "Authenticate Ora in this environment and verify the required product and API scopes.",
-    "Resolve all three hosted harness/model choices from Ora's authenticated catalog and bind a repository write credential.",
-    "Define authorized targets and permitted assessment methods.",
-    "Configure and verify an OpenCode provider before claiming an OpenCode team member.",
-    "Implement and verify a bounded production runner before claiming ongoing production operation."
-  ]
+    "Create and verify the configured Ora team and bounded passive-review mission.",
+    "Active assessment requires a concrete authorized scope; no direct assessments are configured."
+  ],
+  "repository_visibility": "public",
+  "hosted_repository_access": "public_read_only_operator_pushes_reviewed_results"
 }
