@@ -7,7 +7,10 @@
     "created": true,
     "status": "active",
     "active_missions": 0,
-    "live_workers": 0
+    "live_workers": 0,
+    "topology": "mesh@1",
+    "topology_verified_at": "2026-10-25T15:22:29.260910+00:00",
+    "peer_messaging_smoke_verified": false
   },
   "scope": {
     "mode": "passive_source_review",
