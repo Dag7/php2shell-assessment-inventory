@@ -10,9 +10,18 @@
     "api_key_configured": true,
     "team_template_prepared": true,
     "hosted_catalog_verified": true,
-    "team_created": false,
-    "mission_started": false,
-    "team_configuration_resolved": true
+    "team_created": true,
+    "mission_started": true,
+    "team_configuration_resolved": true,
+    "team_id": "9ddf061f-97d6-48de-8b4e-a0f562d34ae1",
+    "team_slug": "php-inventory-review",
+    "first_review_mission_id": "1c2ef633-9faa-4bef-a7d9-4783b663170f",
+    "first_review_mission_status": "stopped",
+    "first_review_stop_reason": "turn_budget_after_opencode_failures",
+    "opencode_startup_check_mission_id": "3a134c9e-1a57-4937-bd51-68602a6d49ef",
+    "all_three_members_execution_verified": true,
+    "opencode_runtime_model": "claude-sonnet-4-6",
+    "opencode_startup_check_passed": true
   },
   "codex": {
     "cli_version": "0.162.1",
@@ -38,7 +47,7 @@
     "installed": false
   },
   "remaining_requirements": [
-    "Create and verify the configured Ora team and bounded passive-review mission.",
+    "Verify OpenCode startup after the model fallback and complete a reviewed report.",
     "Active assessment requires a concrete authorized scope; no direct assessments are configured."
   ],
   "repository_visibility": "public",
