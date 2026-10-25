@@ -1,0 +1,90 @@
+{
+  "batch_id": "passive-001",
+  "recorded_at": "2026-10-25T12:29:27Z",
+  "mode": "published_technology_profiles_only",
+  "candidate_domain_limit": 5,
+  "candidate_domains_recorded": 5,
+  "direct_target_requests_sent": 0,
+  "cve_tests_performed": 0,
+  "selection_method": "First five hostnames in the public Wappalyzer PHP sample, preserving published order.",
+  "limitations": [
+    "Technology claims originate from the profiling service and were not independently verified against the candidate hosts.",
+    "The source does not provide per-host PHP versions, runtime builds, patch records, or observation timestamps in this public sample.",
+    "Reported PHP use does not establish that either PHP2Shell CVE affects a site.",
+    "No candidates were added to active assessment scope and no owner messages were sent."
+  ],
+  "sources_reviewed": [
+    {
+      "provider": "Wappalyzer",
+      "url": "https://www.wappalyzer.com/technologies/programming-languages/php/",
+      "result": "Public sample provides hostnames reportedly using PHP; used for this batch."
+    },
+    {
+      "provider": "BuiltWith",
+      "url": "https://trends.builtwith.com/websitelist/PHP",
+      "result": "Accessible page provides aggregate counts; no per-host rows were present in the retrieved content. Not used to populate candidates."
+    },
+    {
+      "provider": "PublicWWW",
+      "url": "https://publicwww.com/",
+      "result": "Reviewed search capabilities. No candidate search or export was performed."
+    }
+  ],
+  "candidates": [
+    {
+      "hostname": "chess.com",
+      "provider_sample_position": 1,
+      "source_url": "https://www.wappalyzer.com/technologies/programming-languages/php/",
+      "technology_reported": "PHP",
+      "php_version": null,
+      "source_observed_at": null,
+      "independently_verified": false,
+      "included_in_active_scope": false,
+      "cve_status": {"CVE-2026-109618": "unknown", "CVE-2026-109619": "unknown"}
+    },
+    {
+      "hostname": "accounts.hetzner.com",
+      "provider_sample_position": 2,
+      "source_url": "https://www.wappalyzer.com/technologies/programming-languages/php/",
+      "technology_reported": "PHP",
+      "php_version": null,
+      "source_observed_at": null,
+      "independently_verified": false,
+      "included_in_active_scope": false,
+      "cve_status": {"CVE-2026-109618": "unknown", "CVE-2026-109619": "unknown"}
+    },
+    {
+      "hostname": "fmkorea.com",
+      "provider_sample_position": 3,
+      "source_url": "https://www.wappalyzer.com/technologies/programming-languages/php/",
+      "technology_reported": "PHP",
+      "php_version": null,
+      "source_observed_at": null,
+      "independently_verified": false,
+      "included_in_active_scope": false,
+      "cve_status": {"CVE-2026-109618": "unknown", "CVE-2026-109619": "unknown"}
+    },
+    {
+      "hostname": "gall.dcinside.com",
+      "provider_sample_position": 4,
+      "source_url": "https://www.wappalyzer.com/technologies/programming-languages/php/",
+      "technology_reported": "PHP",
+      "php_version": null,
+      "source_observed_at": null,
+      "independently_verified": false,
+      "included_in_active_scope": false,
+      "cve_status": {"CVE-2026-109618": "unknown", "CVE-2026-109619": "unknown"}
+    },
+    {
+      "hostname": "portal.azure.com",
+      "provider_sample_position": 5,
+      "source_url": "https://www.wappalyzer.com/technologies/programming-languages/php/",
+      "technology_reported": "PHP",
+      "php_version": null,
+      "source_observed_at": null,
+      "independently_verified": false,
+      "included_in_active_scope": false,
+      "cve_status": {"CVE-2026-109618": "unknown", "CVE-2026-109619": "unknown"}
+    }
+  ]
+}

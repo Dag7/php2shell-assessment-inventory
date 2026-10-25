@@ -1,6 +1,7 @@
 # Assessment boundaries
 
-- No collection is authorized while `scope.json` has an empty `allowed_hosts` list.
+- No direct site assessment or probe is authorized by this repository while `scope.json` has an empty `allowed_hosts` list.
+- The user requested a limited review of published technology profiles. Batch 001 permits passive research on at most five candidate hostnames using BuiltWith, Wappalyzer, and PublicWWW. Store this in `research/`; it does not add hosts to the active scope or establish a vulnerability. Do not expand or repeat the batch autonomously.
 - Collect only for exact hosts explicitly approved by the user and recorded with `host`, `permission_reference`, unexpired `expires_at`, `allowed_methods`, and a shared `request_budget` containing `max_requests` and `max_requests_per_minute`.
 - Do not add targets through autonomous discovery. Redirects, related domains, shared addresses, search results, and links do not extend scope. Ask for missing host or permission details before collecting.
 - Stay within the approved methods and request budgets across all workers. Do not send exploit payloads, perform overload probes, or attempt exploitation.

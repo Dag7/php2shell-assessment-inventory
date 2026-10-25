@@ -2,10 +2,12 @@
   "checked_on": "2026-10-25",
   "production_team_running": false,
   "sites_assessed": 0,
+  "passive_candidate_domains_recorded": 5,
+  "direct_target_requests_sent": 0,
   "codex": {
     "cli_version": "0.162.1",
     "authenticated": true,
-    "work_completed": ["Primary-source advisory research", "Inventory preparation and review"]
+    "work_completed": ["Primary-source advisory research", "Inventory preparation and review", "Five-domain passive technology-profile inventory"]
   },
   "claude": {
     "cli_version": "2.1.300",

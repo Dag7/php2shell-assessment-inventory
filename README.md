@@ -1,12 +1,12 @@
 # PHP assessment inventory
 
-This repository is an empty inventory for authorized PHP exposure assessments. **No sites have been assessed.** It contains no scanner, scheduled runner, CI workflow, or production deployment.
+This repository contains an assessment scaffold and a small passive PHP technology inventory. **No sites have been assessed or directly probed.** It contains no scanner, scheduled runner, CI workflow, or production deployment.
 
 The PHP2Shell advisories cover [CVE-2026-109618](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w) and [CVE-2026-109619](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp). PHP lists upstream fixes in 8.2.35, 8.3.36, 8.4.27, and 8.5.12 in its [2026 release archive](https://www.php.net/archive/2026.php). Assess each CVE's applicability and vendor patch evidence separately.
 
 ## Start with scope
 
-Record explicitly approved hosts in `scope.json` before collecting observations. Its empty `allowed_hosts` list currently authorizes no collection. Each entry must contain:
+Record explicitly approved hosts in `scope.json` before directly collecting site observations. Its empty `allowed_hosts` list currently authorizes no direct assessment or probing. Each entry must contain:
 
 | Field | Required value |
 | --- | --- |
@@ -17,6 +17,12 @@ Record explicitly approved hosts in `scope.json` before collecting observations.
 | `request_budget` | Object with `max_requests` and `max_requests_per_minute`, both positive integers; counts apply across all workers for that host. |
 
 An expired or incomplete entry grants no scope. A redirect, related hostname, shared IP address, or linked site does not extend permission. Scope changes require an explicit user instruction identifying the approved host and permission reference.
+
+## Passive batch 001
+
+The user requested technology profiling sources and a limited number of domains. `research/passive-batch-001.json` records five hostnames from Wappalyzer's public PHP sample, in their published order. The batch is capped at five candidate domains. BuiltWith and PublicWWW were also reviewed as source options; no paid exports were purchased and no source restrictions were bypassed.
+
+These are third-party technology claims, with no per-site PHP version or patch evidence. Each candidate's PHP2Shell CVE status is `unknown`. A candidate is not an active assessment target, a vulnerability finding, or evidence that its owner should receive a vulnerability alert. No direct requests were sent to the five candidate hostnames, and `data/observations.jsonl` remains empty.
 
 ## Record evidence
 
